@@ -1,29 +1,38 @@
+"use client";
+import Link from "next/link";
+
 export default function Navbar() {
-    const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' }
-  ];
+
+const resumeHandeler =()=>{
+  window.open("/assets/resume.pdf","_blank");
+}
 
   return (
-    <nav className="bg-black text-white border-b border-cyan-500/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold">Tejas Kamble</h1>
-          </div>
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link)=>(
-                <a key={link.name} href={link.href} className="hover:text-cyan-500">
-                    {link.name}
-                </a>
-            ))}
-          </div>
+    <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 ">
+
+      <nav className="bg-black/100 font-sans backdrop-blur-md rounded-full p-2 m-2  px-8 py-4 flex items-center gap-8">
+        
+        {/* Links */}
+        <div className="hidden md:flex gap-6 text-sm font-medium text-slate-300">
+          <Link href="/projects" className="hover:text-white hover:text-glow-subtle transition-all">
+            Projects
+          </Link>
+          <Link href="/about" className="hover:text-white hover:text-glow-subtle transition-all">
+            About
+          </Link>
+          <Link href="/experience" className="hover:text-white hover:text-glow-subtle transition-all">
+            Experience {/* Fixed spelling: Experince -> Experience */}
+          </Link>
+          <Link href="/contact" className="hover:text-white hover:text-glow-subtle transition-all">
+            Contact
+          </Link>
         </div>
-      </div>
-    </nav>
+
+        <button onClick={resumeHandeler} className="hidden md:block px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold rounded-full transition-all shadow-[0_0_15px_rgba(99,102,241,0.5)]">
+          View Resume
+        </button>
+
+      </nav>
+    </div>
   );
 }

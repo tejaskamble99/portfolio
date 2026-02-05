@@ -1,11 +1,15 @@
+import Hero from "@/components/sections/Hero";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        Tejas
-      </main>
-    </div>
+    <main className="relative min-h-screen w-full overflow-x-hidden">
+      <div className="fixed inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 pointer-events-none"></div>
+      </div>
+      <div className="relative z-10">
+        <Hero />
+      </div>
+    </main>
   );
 }
