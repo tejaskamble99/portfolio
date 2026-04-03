@@ -1,9 +1,10 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 export default function Hero() {
-  // 1. Define the code snippets with their colors
   const codeParts = [
     { text: "const", color: "text-indigo-400" },
     { text: " ", color: "text-slate-300" },
@@ -12,12 +13,10 @@ export default function Hero() {
     { text: "=", color: "text-slate-300" },
     { text: " ", color: "text-slate-300" },
     { text: '"', color: "text-emerald-400" },
-    { text: "Full Stack Engineer", color: "text-emerald-400" },
+    { text: "Full Stack Developer", color: "text-emerald-400" },
     { text: '";', color: "text-emerald-400" },
   ];
 
-  // 2. The "Pro Move": Flatten the array so animations flow linearly
-  // This prevents the "overlapping timing" bug.
   const flatText = codeParts.flatMap((part) =>
     part.text.split("").map((char) => ({ char, color: part.color })),
   );
@@ -26,7 +25,6 @@ export default function Hero() {
     <section className="relative h-screen w-full flex flex-col items-center justify-center px-4 z-10 pointer-events-none">
       {/* Container with the '-mt-24' fix to pull it up slightly */}
       <div className="flex flex-col items-center text-center max-w-4xl pointer-events-auto ">
-        {/* Status Badge */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -40,12 +38,11 @@ export default function Hero() {
           OPEN TO WORK
         </motion.div>
 
-        {/* Name Headline */}
         <div className="text-6xl sm:text-8xl font-bold text-slate-100 mb-4">
           <h1 className="text-glow-strong">Tejas Kamble</h1>
         </div>
         <br />
-        {/* The Typing Effect Code Block */}
+
         <div className="font-mono text-sm sm:text-lg text-slate-400 mb-10 flex items-center gap-3 bg-black/30 px-6 py-3 rounded-lg border border-white/5 backdrop-blur-sm shadow-2xl">
           <span className="text-indigo-500 hidden sm:inline select-none">
             &gt;
@@ -56,14 +53,13 @@ export default function Hero() {
               <motion.span
                 key={index}
                 className={item.color}
-                initial={{ opacity: 0, display: "none" }} // Hide initially
-                animate={{ opacity: 1, display: "inline" }} // Show one by one
+                initial={{ opacity: 0, display: "none" }}
+                animate={{ opacity: 1, display: "inline" }}
                 transition={{
                   duration: 0,
-                  delay: index * 0.05, // Linear delay: 0.05s per character
+                  delay: index * 0.05,
                 }}
               >
-                {/* Preserve spaces */}
                 {item.char === " " ? "\u00A0" : item.char}
               </motion.span>
             ))}
@@ -71,7 +67,7 @@ export default function Hero() {
 
           {/* Blinking Cursor */}
           <motion.span
-            className="w-[2px] h-[20px] bg-indigo-500"
+            className="w-2px h-20px bg-indigo-500"
             animate={{ opacity: [1, 0, 1] }}
             transition={{
               duration: 0.8,
@@ -81,7 +77,6 @@ export default function Hero() {
           />
         </div>
 
-        {/* Action Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -102,6 +97,26 @@ export default function Hero() {
             CONTACT ME
           </Link>
         </motion.div>
+
+        <div className="flex gap-6 mt-6 text-2xl text-slate-400">
+          <a
+            href="https://github.com/tejaskamble99"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition"
+          >
+            <FaGithub />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/kamble-tejas99/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-400 transition"
+          >
+            <FaLinkedin />
+          </a>
+        </div>
       </div>
     </section>
   );

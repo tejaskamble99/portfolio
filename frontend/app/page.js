@@ -1,4 +1,10 @@
+
+import AboutSection from "@/components/sections/AboutSection";
+import ExperienceSection from "@/components/sections/ExperienceSection";
 import Hero from "@/components/sections/Hero";
+import MetricsSection from "@/components/sections/MetricsSection";
+import ProjectSection from "@/components/sections/ProjectsSection";
+import TechStackSection from "@/components/sections/TechStackSection";
 import Image from "next/image";
 
 export default function Home() {
@@ -9,6 +15,12 @@ export default function Home() {
       </div>
       <div className="relative z-10">
         <Hero />
+        <MetricsSection />
+        <AboutSection />
+        <TechStackSection />
+        <ExperienceSection />
+        <ProjectSection />
+        
       </div>
     </main>
   );
