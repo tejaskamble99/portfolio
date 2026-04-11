@@ -22,8 +22,8 @@ export default function Hero() {
   );
 
   return (
-    <section className="relative h-screen w-full flex flex-col items-center justify-center px-4 z-10 pointer-events-none">
-      {/* Container with the '-mt-24' fix to pull it up slightly */}
+    <section className="relative h-screen w-full flex flex-col items-center justify-center px-3 z-10 pointer-events-none">
+      
       <div className="flex flex-col items-center text-center max-w-4xl pointer-events-auto ">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
