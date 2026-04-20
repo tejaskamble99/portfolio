@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint"
   },
@@ -29,6 +29,7 @@
     "@tailwindcss/postcss": "^4",
     "autoprefixer": "^10.4.24",
     "babel-plugin-react-compiler": "1.0.0",
+    "baseline-browser-mapping": "^2.10.20",
     "eslint": "^9",
     "eslint-config-next": "16.0.6",
     "postcss": "^8.5.6",

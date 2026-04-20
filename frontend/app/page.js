@@ -1,5 +1,6 @@
 
 import AboutSection from "@/components/sections/AboutSection";
+import ContactSection from "@/components/sections/ContactSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import Hero from "@/components/sections/Hero";
 import MetricsSection from "@/components/sections/MetricsSection";
@@ -20,6 +21,7 @@ export default function Home() {
         <TechStackSection />
         <ExperienceSection />
         <ProjectSection />
+        <ContactSection />
         
       </div>
     </main>
