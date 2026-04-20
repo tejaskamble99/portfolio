@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { label } from "framer-motion/client";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -25,6 +26,7 @@ export default function Navbar() {
   };
 
   const navItems = [
+    { href: "/", label:"Home"},
     { href: "/about", label: "About Me" },
     { href: "/experience", label: "Experience" },
     { href: "/projects", label: "Projects" },

@@ -5,7 +5,7 @@ import Hero from "@/components/sections/Hero";
 import MetricsSection from "@/components/sections/MetricsSection";
 import ProjectSection from "@/components/sections/ProjectsSection";
 import TechStackSection from "@/components/sections/TechStackSection";
-import Image from "next/image";
+
 
 export default function Home() {
   return (

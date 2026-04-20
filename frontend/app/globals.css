@@ -1,19 +1,17 @@
 @import "tailwindcss";
 
-/* High-Value "Cyberpunk Terminal" Theme 
-  - Optimized for Next.js 14 + Tailwind v4 
-*/
+
 
 :root {
-  --grid-color: rgba(99, 102, 241, 0.08); /* Subtle indigo grid */
-  --grid-glow: rgba(99, 102, 241, 0.15);  /* Accent glow */
-  --bg-base: #0a0a0f;                     /* Rich deep black */
+  --grid-color: rgba(99, 102, 241, 0.08);
+  --grid-glow: rgba(99, 102, 241, 0.15);  
+  --bg-base: #0a0a0f;                     
   --bg-gradient-start: #050509;
   --bg-gradient-end: #0f0f1a;
 }
 
 body {
-  /* 1. Layered Background System */
+ 
   background-color: var(--bg-base);
   
   background-image: 
@@ -26,10 +24,10 @@ body {
     linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
     
   background-size: 
-    100% 100%, /* Radial 1 */
-    100% 100%, /* Radial 2 */
-    40px 40px, /* Grid W */
-    40px 40px; /* Grid H */
+    100% 100%,
+    100% 100%,
+    40px 40px, 
+    40px 40px; 
 
   /* 2. Smooth fade mask (Vignette effect) */
   mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
