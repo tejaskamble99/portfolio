@@ -6,8 +6,22 @@ import { useState } from "react"
 
 
 const projects = [
+
   {
     id: 1,
+    title: "E-Commerce Platform",
+    image: "/assets/projects/ecommerce.jpg",
+    description: "Production-grade full-stack e-commerce platform with authentication, cart management, order flow, and admin dashboard. Features Razorpay & Stripe checkout, coupon validation with debouncing, and RTK Query with caching and optimistic updates.",
+    stack: ["Next.js", "TypeScript", "Redux Toolkit", "MongoDB", "Firebase", "Stripe", "Razorpay"],
+    previewLink: "",
+    githubLink: "https://github.com/tejaskamble99/mern-ecommerce-store",
+    featured: true,
+    accentColor: "#6366f1",
+    tagline: "Production-grade full-stack store with payments",
+    metrics: ["Stripe & Razorpay", "RTK Query", "Full-stack"],
+  },
+  {
+    id: 2,
     title: "Real-Time Chat Application",
     tagline: "Full-stack group messaging with live events",
     description:
@@ -20,7 +34,33 @@ const projects = [
     metrics: ["Real-time events", "REST API", "Full-stack"],
   },
   {
-    id: 2,
+    id: 3,
+    title: "TaskFlow — Collaborative Task Manager",
+    tagline: "Real-time collaborative task management",
+    image: "/assets/projects/taskflow.jpg",
+    description: "Full-stack real-time task management platform where updates appear instantly across all connected clients using Socket.IO. Includes JWT auth, task prioritization, and live status tracking.",
+    stack: ["Next.js", "TypeScript", "Socket.IO", "Express.js", "MongoDB", "JWT"],
+    previewLink: "",
+    githubLink: "https://github.com/tejaskamble99/Collaborative-Task-Manager",
+    featured: false,
+    accentColor: "#8b5cf6",
+    metrics: ["Socket.IO", "JWT Auth", "Full-stack"],
+  },
+  {
+    id: 4,
+    title: "Stock Market Prediction App",
+    tagline: "LSTM neural network with Django backend",
+    image: "/assets/projects/stock.jpg",
+    description: "LSTM neural network for stock price prediction with a Django REST backend and JavaScript frontend, containerized using Docker.",
+    stack: ["Python", "Django", "TensorFlow", "LSTM", "Docker"],
+    previewLink: "",
+    githubLink: "https://github.com/tejaskamble99/stock-prediction-v2",
+    featured: false,
+    accentColor: "#10b981",
+    metrics: ["LSTM Model", "Docker", "REST API"],
+  },
+  {
+    id: 5,
     title: "Movie Discovery App",
     tagline: "Browse, rate & explore films via external API",
     description:
@@ -29,11 +69,11 @@ const projects = [
     previewLink: "https://movies-rate-app.netlify.app/",
     githubLink: "https://github.com/tejaskamble99/MOVIES-Rating-app",
     featured: false,
-    accentColor: "#06b6d4", // cyan
+    accentColor: "#06b6d4",
     metrics: ["Live demo", "API integration", "Responsive UI"],
   },
   {
-    id: 3,
+    id: 6,
     title: "Interactive Game Platform",
     tagline: "Multi-game app with state management",
     description:
@@ -42,11 +82,11 @@ const projects = [
     previewLink: "https://games-to.netlify.app/",
     githubLink: "https://github.com/tejaskamble99/games",
     featured: false,
-    accentColor: "#8b5cf6", // violet
+    accentColor: "#8b5cf6",
     metrics: ["Live demo", "State management", "Multi-game"],
   },
   {
-    id: 4,
+    id: 7,
     title: "To-Do List App",
     tagline: "Next.js task manager with local persistence",
     description:
@@ -55,24 +95,26 @@ const projects = [
     previewLink: "https://todo-list-nextjs.netlify.app/",
     githubLink: "https://github.com/tejaskamble99/todo-list-nextjs",
     featured: false,
-    accentColor: "#10b981", // emerald
+    accentColor: "#10b981",
     metrics: ["Live demo", "Next.js SSR", "Persistent state"],
   },
 ]
 
 
 const stackColors = {
-  "React":      "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
-  "Node.js":    "bg-green-500/10 text-green-400 border-green-500/20",
-  "Express":    "bg-slate-500/10 text-slate-400 border-slate-500/20",
-  "MongoDB":    "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-  "Socket.IO":  "bg-indigo-500/10 text-indigo-400 border-indigo-500/20",
+  "React": "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
+  "Node.js": "bg-green-500/10 text-green-400 border-green-500/20",
+  "Express": "bg-slate-500/10 text-slate-400 border-slate-500/20",
+  "MongoDB": "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+  "Socket.IO": "bg-indigo-500/10 text-indigo-400 border-indigo-500/20",
   "JavaScript": "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
-  "REST API":   "bg-purple-500/10 text-purple-400 border-purple-500/20",
-  "Next.js":    "bg-white/5 text-slate-300 border-white/10",
+  "REST API": "bg-purple-500/10 text-purple-400 border-purple-500/20",
+  "Next.js": "bg-white/5 text-slate-300 border-white/10",
   "TypeScript": "bg-blue-500/10 text-blue-400 border-blue-500/20",
-  "default":    "bg-white/5 text-slate-400 border-white/10",
+  "default": "bg-white/5 text-slate-400 border-white/10",
 }
+
+
 
 function getBadgeClass(tech) {
   return stackColors[tech] || stackColors["default"]
@@ -88,7 +130,7 @@ function FeaturedProject({ project }) {
       transition={{ duration: 0.6 }}
       className="relative rounded-2xl border border-white/10 bg-[#0b0b0e] overflow-hidden mb-8 group"
     >
-      {/* Glow accent bar */}
+
       <div
         className="absolute top-0 left-0 right-0 h-[2px]"
         style={{ background: `linear-gradient(to right, transparent, ${project.accentColor}, transparent)` }}
@@ -110,7 +152,7 @@ function FeaturedProject({ project }) {
             <p className="text-slate-400 mt-1">{project.tagline}</p>
           </div>
 
-          {/* Links */}
+
           <div className="flex gap-3 flex-shrink-0">
             {project.previewLink && (
               <a
@@ -136,14 +178,14 @@ function FeaturedProject({ project }) {
           </div>
         </div>
 
-        {/* Description */}
+
         <p className="text-slate-300 leading-relaxed mb-8 max-w-3xl">
           {project.description}
         </p>
 
-        {/* Metrics pills */}
+
         <div className="flex flex-wrap gap-2 mb-6">
-          {project.metrics.map((m) => (
+          {(project.metrics ?? []).map((m) => (
             <span
               key={m}
               className="px-3 py-1 rounded-full text-xs font-mono border"
@@ -308,7 +350,7 @@ function ProjectCard({ project, index }) {
 // ─── Main section ──────────────────────────────────────────────────────────────
 export default function ProjectsSection() {
   const featured = projects.find((p) => p.featured)
-  const others   = projects.filter((p) => !p.featured)
+  const others = projects.filter((p) => !p.featured)
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-24">
