@@ -11,6 +11,9 @@ const inter = Inter({
 export const metadata = {
   title: "Tejas Kamble - Full Stack Developer",
   description: "Portfolio of Tejas Kamble - MERN Stack Developer",
+      icons: {
+    icon: "/assets/logo.png",   
+  },
 };
 
 export default function RootLayout({ children }) {
